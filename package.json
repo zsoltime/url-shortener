@@ -1,0 +1,36 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.1",
+  "description": "URL shortener API for Free Code Camp",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsoltime/url-shortener.git"
+  },
+  "author": "Zsolt Meszaros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zsoltime/url-shortener/issues"
+  },
+  "homepage": "https://github.com/zsoltime/url-shortener#readme",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "mongodb": "^2.2.11"
+  },
+  "devDependencies": {
+    "morgan": "^1.7.0"
+  }
+}
