@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router();
+const express = require('express');
 const validate = require('../helpers/validator');
 const base62 = require('../helpers/base62');
 const urls = require('../models/url');
+
+const router = express.Router();
 
 base62.setCharSet(process.env.BASE62_CHARSET);
 
@@ -15,7 +16,7 @@ router.get('/:id', (req, res) => {
   .then(doc => res.redirect(301, doc.url))
   .catch(() => res.send({
     error: true,
-    message: 'Could not find document'
+    message: 'Could not find document',
   }));
 });
 
@@ -23,22 +24,20 @@ router.get('/shorten/:url(*)', (req, res) => {
   // OMG, it's so dirty, but req.params.url won't catch full URL
   // if it includes query strings
   // const url = req.params.url;
-  const url = req.originalUrl.replace(/^\/shorten\//, '');
+  const urlToShorten = req.originalUrl.replace(/^\/shorten\//, '');
 
-  validate.url(url)
+  validate.isUrl(urlToShorten)
   .then(url => urls.create(url))
   .then(id => base62.encode(id))
-  .then(base62 => {
-    return {
-      original: url,
-      short: process.env.API_URL + '/' + base62,
-      statistics: process.env.API_URL + '/stats/' + base62
-    }
-  })
-  .then(urls => res.send(urls))
+  .then(base62Code => ({
+    original: urlToShorten,
+    short: `${process.env.API_URL}/${base62Code}`,
+    statistics: `${process.env.API_URL}/stats/${base62Code}`,
+  }))
+  .then(listOfUrls => res.send(listOfUrls))
   .catch(err => res.send({
     error: true,
-    message: err
+    message: err,
   }));
 });
 
