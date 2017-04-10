@@ -31,6 +31,9 @@
     "mongodb": "^2.2.11"
   },
   "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0",
     "morgan": "^1.7.0"
   }
 }

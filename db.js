@@ -1,11 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
 
-let state = {
-  db: null
-}
+const state = {
+  db: null,
+};
 
-module.exports.connect = function(uri) {
-  return new Promise((resolve, reject) => {
+module.exports.connect = uri => (
+  new Promise((resolve, reject) => {
     if (state.db) {
       resolve(state.db);
     }
@@ -15,25 +15,23 @@ module.exports.connect = function(uri) {
       }
       state.db = db;
       resolve(state.db);
-    })
-  });
-}
+    });
+  })
+);
 
-module.exports.get = function() {
-  return state.db;
-}
+module.exports.get = () => state.db;
 
-module.exports.collection = function(col) {
+module.exports.collection = (col) => {
   if (state.db) {
     return state.db.collection(col);
   }
-}
+};
 
-module.exports.close = function(done) {
+module.exports.close = (done) => {
   if (state.db) {
     state.db.close((err, result) => {
       state.db = null;
       done(err);
     });
   }
-}
+};
