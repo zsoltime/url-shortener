@@ -15,25 +15,39 @@
     "url": "git+https://github.com/zsoltime/url-shortener.git"
   },
   "author": "Zsolt Meszaros",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zsoltime/url-shortener/issues"
   },
   "homepage": "https://github.com/zsoltime/url-shortener#readme",
   "engines": {
-    "node": "6.9.1"
+    "node": "6.11.1"
   },
   "dependencies": {
-    "cors": "^2.8.1",
-    "dotenv": "^2.0.0",
-    "express": "^4.15.2",
-    "mongodb": "^2.2.11",
-    "pug": "^2.0.0-beta11"
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb-base": "^11.1.2",
-    "eslint-plugin-import": "^2.2.0",
-    "morgan": "^1.7.0"
+    "autoprefixer": "^7.1.2",
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-watch": "^4.3.11",
+    "morgan": "^1.8.2",
+    "postcss-easy-import": "^2.1.0",
+    "postcss-hexrgba": "^1.0.0",
+    "postcss-import": "^10.0.0",
+    "postcss-mixins": "^6.0.1",
+    "postcss-nested": "^2.1.0",
+    "postcss-simple-vars": "^4.0.0",
+    "sugarss": "^1.0.0"
   }
 }
