@@ -1,3 +1,5 @@
+'use strict';
+
 const base62 = (function base62() {
   let charSet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
