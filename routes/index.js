@@ -9,7 +9,7 @@ const router = express.Router();
 
 base62.setCharSet(process.env.BASE62_CHARSET);
 
-router.get('/', (req, res) => res.send('API documentation'));
+router.get('/', (req, res) => { res.render('index'); });
 
 router.get('/:id', (req, res) => {
   const id = base62.decode(req.params.id);
@@ -26,7 +26,11 @@ router.get('/shorten/:url(*)', (req, res) => {
   // OMG, it's so dirty, but req.params.url won't catch full URL
   // if it includes query strings
   // const url = req.params.url;
-  const urlToShorten = req.originalUrl.replace(/^\/shorten\//, '');
+  let urlToShorten = req.originalUrl.replace(/^\/shorten\//, '');
+
+  if (validate.isEncoded(urlToShorten)) {
+    urlToShorten = decodeURIComponent(urlToShorten);
+  }
 
   validate.isUrl(urlToShorten)
     .then(url => urls.create(url))

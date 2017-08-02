@@ -1,0 +1,12 @@
+section
+  h3 Live Example
+  p You can paste any URL into the field below and hit enter. 
+  form#form
+    input(type='url' name='url' required placeholder='Paste a link to shorten it')
+    button(type='submit') Shorten
+  .row
+    .col.col--half
+      .short#shorturl(title='Click to copy to clipboard') Your short URL will appear here...
+    .col.col--half
+      pre.response
+        code#response {}

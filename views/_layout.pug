@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    block meta
+      meta(charset='UTF-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+    block title
+    block fonts
+      link(href='https://fonts.googleapis.com/css?family=Lato:300|Source+Code+Pro:300', rel='stylesheet', type='text/css')
+    block styles
+      // build:css style.css
+      link(href='style.css', rel='stylesheet', type='text/css')
+      // endbuild
+  body
+    block content
+    // build:js app.js
+    script(src='app.js')
+    // endbuild

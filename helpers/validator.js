@@ -9,3 +9,12 @@ module.exports.isUrl = function isUrl(url) {
     }
   });
 };
+
+module.exports.isEncoded = function isEncoded(str) {
+  try {
+    decodeURIComponent(str);
+  } catch (e) {
+    return false;
+  }
+  return decodeURIComponent(str) !== str;
+};

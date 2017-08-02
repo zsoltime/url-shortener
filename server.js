@@ -3,6 +3,7 @@
 /* eslint-disable no-console */
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const db = require('./db');
@@ -16,7 +17,9 @@ if (app.get('env') === 'development') {
   const morgan = require('morgan');
   app.use(morgan('dev'));
 }
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(routes);
 

@@ -1,0 +1,11 @@
+extends _layout.pug
+block title
+  title URL Shortener by Zsolt Meszaros
+block append meta
+  meta(name='description', content='Check out my URL shortener API, built for freeCodeCamp using Node.js and MongoDB')
+block content
+  main.container
+    include partials/_site-header.pug
+    include partials/_description.pug
+    include partials/_example.pug
+  include partials/_site-footer.pug
